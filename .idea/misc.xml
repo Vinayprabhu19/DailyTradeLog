@@ -6,9 +6,12 @@
         <entry key="..\:/Projects/TradeLog/app/src/main/res/drawable-v24/ic_baseline_add_24.xml" value="0.2" />
         <entry key="..\:/Projects/TradeLog/app/src/main/res/drawable-v24/ic_baseline_arrow_back_24.xml" value="0.2" />
         <entry key="..\:/Projects/TradeLog/app/src/main/res/drawable/ic_launcher_background.xml" value="0.43846153846153846" />
+        <entry key="..\:/Projects/TradeLog/app/src/main/res/drawable/ic_launcher_tradelog_background.xml" value="0.2635416666666667" />
         <entry key="..\:/Projects/TradeLog/app/src/main/res/layout/activity_add_log.xml" value="0.1" />
+        <entry key="..\:/Projects/TradeLog/app/src/main/res/layout/activity_logs.xml" value="0.24739583333333334" />
         <entry key="..\:/Projects/TradeLog/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Projects/TradeLog/app/src/main/res/layout/layout_log.xml" value="0.1" />
+        <entry key="..\:/Projects/TradeLog/app/src/main/res/layout/layout_overview.xml" value="0.13451086956521738" />
       </map>
     </option>
   </component>

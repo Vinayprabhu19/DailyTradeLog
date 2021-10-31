@@ -6,6 +6,7 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
+import com.vp19.tradelog.models.SumAverageTradePojo;
 import com.vp19.tradelog.models.TradeLog;
 
 import java.util.List;
@@ -24,6 +25,9 @@ public interface TradeLogDao {
 
     @Query("SELECT * FROM TradeLog WHERE date = :date")
     TradeLog findTradeLogWithDate(String date);
+
+    @Query("SELECT sum(profit) as totalProfit, sum(brokerage) as totalBrokerage FROM TradeLog where dateString BETWEEN :startDay AND :endDay ")
+    SumAverageTradePojo getTradeOverview(String startDay,String endDay);
 
     @Delete
     void delete(TradeLog tradeLog);

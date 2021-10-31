@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.room.Room;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.vp19.tradelog.dao.TradeLogDao;
@@ -57,7 +59,12 @@ public class AddLog extends AppCompatActivity {
             tradeLog.setDate(date);
             tradeLog.setDateString(dateString);
             tradeDao.insert(tradeLog);
+            Context context = getApplicationContext();
+            CharSequence text = "Logged entry successfully";
+            int duration = Toast.LENGTH_SHORT;
 
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
 
         }
         catch(Exception e){

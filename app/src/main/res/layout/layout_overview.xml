@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardBackgroundColor="@color/light_blue"
+    android:id="@+id/card">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="15dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="This Week"
+                android:textAlignment="center"
+                android:textSize="15dp"
+
+                android:id="@+id/type"
+                android:textColor="@color/white"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="2000 RS"
+                android:textAlignment="center"
+                android:textSize="25dp"
+                android:id="@+id/netProfitOverview"
+                android:textColor="@color/white"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Profit - 2000 RS"
+                android:textAlignment="center"
+                android:textSize="15dp"
+                android:id="@+id/grossProfitOverview"
+                android:textColor="@color/white"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Brokerage - 450 RS"
+                android:textAlignment="center"
+                android:textSize="15dp"
+                android:id="@+id/grossBrokerageOverview"
+                android:textColor="@color/white"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="27 Oct 2021 - 31 Oct 2021"
+                android:textAlignment="center"
+                android:textSize="15dp"
+                android:id="@+id/dateOverview"
+                android:textColor="@color/white"
+                android:textStyle="bold"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
