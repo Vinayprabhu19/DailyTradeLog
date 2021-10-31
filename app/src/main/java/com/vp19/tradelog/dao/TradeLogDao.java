@@ -13,7 +13,7 @@ import java.util.List;
 @Dao
 public interface TradeLogDao {
 
-    @Query("SELECT * FROM TradeLog")
+    @Query("SELECT * FROM TradeLog ORDER BY dateString DESC")
     List<TradeLog> getAll();
 
     @Insert

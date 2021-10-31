@@ -1,6 +1,8 @@
 package com.vp19.tradelog;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.room.Room;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -17,6 +19,9 @@ public class AddLog extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        db = Room.databaseBuilder(getApplicationContext(),
+                AppDatabase.class, "tradelogdb").allowMainThreadQueries().build();
         setContentView(R.layout.activity_add_log);
     }
 
@@ -35,33 +40,23 @@ public class AddLog extends AppCompatActivity {
             int day = datePicker.getDayOfMonth();
             int month = datePicker.getMonth() + 1;
             int year = datePicker.getYear();
-            String date = year+"/"+month+"/"+day;
+            String date = day + " "+getMonth(month) + " "+year;
+            String dateString = year+"/"+(month<10?"0"+month:month)+"/"+(day<10?"0"+day:day);
             String profitValue=profitInput.getText().toString().trim();
             String brokerageValue=brokerageInput.getText().toString();
             double profit=profitValue.equals("")?0:Double.parseDouble(profitValue);
             double brokerage=brokerageValue.equals("")?0:Double.parseDouble(brokerageValue);
 
-            TradeLog tradeLog = tradeDao.findTradeLogWithDate(date);
-            if(tradeLog!=null){
-                Log.i("vplog","ex date "+tradeLog.getDate());
-                Log.i("vplog","ex profit "+tradeLog.getProfit());
-                Log.i("vplog","ex brokerage"+ tradeLog.getBrokerage());
-                tradeLog.setProfit(profit);
-                tradeLog.setBrokerage(brokerage);
-                tradeDao.update(tradeLog);
-            }
-            else{
-                Log.i("vplog","date "+date);
-                Log.i("vplog","profit "+profit);
-                Log.i("vplog","brokerage"+ brokerage);
-                tradeLog=new TradeLog();
-                tradeLog.setProfit(profit);
-                tradeLog.setBrokerage(brokerage);
-                tradeLog.setDate(date);
-
-                tradeDao.insert(tradeLog);
-            }
-
+             TradeLog tradeLog = new TradeLog();
+            Log.i("vplog","date "+dateString);
+            Log.i("vplog","profit "+profit);
+            Log.i("vplog","brokerage"+ brokerage);
+            tradeLog=new TradeLog();
+            tradeLog.setProfit(profit);
+            tradeLog.setBrokerage(brokerage);
+            tradeLog.setDate(date);
+            tradeLog.setDateString(dateString);
+            tradeDao.insert(tradeLog);
 
 
         }
@@ -70,5 +65,23 @@ public class AddLog extends AppCompatActivity {
             Log.e("vplog",e.getMessage());
         }
 
+    }
+
+   private String getMonth(int month){
+        switch (month){
+            case 1:return "Jan";
+            case 2:return "Feb";
+            case 3:return "Mar";
+            case 4:return "Apr";
+            case 5:return "May";
+            case 6:return "Jun";
+            case 7:return "Jul";
+            case 8:return "Aug";
+            case 9:return "Sep";
+            case 10:return "Oct";
+            case 11:return "Nov";
+            case 12:return "Dec";
+            default:return "";
+        }
     }
 }

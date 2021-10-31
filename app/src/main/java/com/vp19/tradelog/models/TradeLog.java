@@ -12,6 +12,7 @@ public class TradeLog {
     private Long key;
 
     private String date;
+    private String dateString;
 
     private double profit;
 
@@ -48,5 +49,13 @@ public class TradeLog {
 
     public void setKey(@NonNull Long key) {
         this.key = key;
+    }
+
+    public String getDateString() {
+        return dateString;
+    }
+
+    public void setDateString(String dateString) {
+        this.dateString = dateString;
     }
 }
